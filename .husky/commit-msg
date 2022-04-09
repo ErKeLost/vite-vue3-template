@@ -2,4 +2,3 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx --no-install commitlint -e $HUSKY_GIT_PARAMS
-# npx --no-install commitlint --edit
