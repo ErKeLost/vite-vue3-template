@@ -11,6 +11,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Inspect from 'vite-plugin-inspect'
 import Pages from 'vite-plugin-pages'
+import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 // import { ConfigEnv } from 'vite'
@@ -97,6 +98,7 @@ export default defineConfig({
       targets: ['ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime']
     }),
+    svgLoader(),
     AutoImport({
       dts: './src/auto-imports.d.ts',
       // imports: ['vue', '@vueuse/core'],
@@ -128,9 +130,10 @@ export default defineConfig({
       // imports 指定组件所在位置，默认为 src/components
       dirs: ['src/components/', 'src/layout/', 'src/views'],
       resolvers: [
-        IconsResolver({
-          enabledCollections: ['a']
-        }),
+        // IconsResolver({
+        //   enabledCollections: ['a']
+        // }),
+        IconsResolver(),
         VueUseComponentsResolver()
       ]
     }),

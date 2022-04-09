@@ -1,21 +1,32 @@
 <script setup lang="ts">
+// import batman from '~/assets/batman.png'
+import four from '~/assets/4k.svg'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <button
-    bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
-    text="sm white"
-    font="mono light"
-    p="y-2 x-4"
-    border="2 rounded blue-200"
-  >
-    我是按钮
-  </button>
+  <!-- <div class="batman"></div> -->
+  <four />
+  <div>
+    <i-carbon-4k-filled
+      style="color: #fba; font-size: 10rem"
+      class="shadow-indigo-300"
+    />
+  </div>
+  <!-- <img class="p-120px text-center" :src="batman" /> -->
 </template>
 
-<style></style>
+<style>
+.batman {
+  /* background-image: url(~/assets/batman.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; */
+}
+</style>
