@@ -14,7 +14,8 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
     "commit": "cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vite:force": "npx vite --force"
   },
   "dependencies": {
     "@vueuse/core": "^8.2.5",

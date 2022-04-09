@@ -6,20 +6,18 @@ import four from '~/assets/4k.svg'
 </script>
 
 <template>
-  <!-- <div class="batman"></div> -->
+  <div class="batman"></div>
   <four />
-  <div>
     <i-carbon-4k-filled
       style="color: #fba; font-size: 10rem"
       class="shadow-indigo-300"
     />
-  </div>
   <!-- <img class="p-120px text-center" :src="batman" /> -->
 </template>
 
 <style>
 .batman {
-  /* background-image: url(~/assets/batman.png);
+  background-image: url(~/assets/batman.png);
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -27,6 +25,6 @@ import four from '~/assets/4k.svg'
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; */
+  z-index: -1;
 }
 </style>

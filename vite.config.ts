@@ -15,6 +15,7 @@ import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 // import { ConfigEnv } from 'vite'
+import viteImagemin from 'vite-plugin-imagemin'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 function pathResolve(dir: string) {
   return path.resolve(process.cwd(), '.', dir)
@@ -48,6 +49,8 @@ export default defineConfig({
   build: {
     minify: 'terser',
     brotliSize: false,
+    // assets 样式 内联打包问题
+    // assetsInlineLimit: 8 * 1024
     // 消除打包大小超过500kb警告
     chunkSizeWarningLimit: 2000,
     // 在生产环境移除console.log
@@ -82,6 +85,11 @@ export default defineConfig({
         rewrite: (path) => path.replace('/api/', '/')
       }
     }
+  },
+  optimizeDeps: {
+    // 按需加载的依赖都可以声明到这个数组里
+    // 配置为一个字符串数组，将 `lodash-es` 和 `vue`两个包强制进行预构建
+    include: ['@vueuse/core', 'vue']
   },
   plugins: [
     vue(),
@@ -140,6 +148,28 @@ export default defineConfig({
     Icons({
       compiler: 'vue3',
       autoInstall: true
+    }),
+    viteImagemin({
+      // 无损压缩配置，无损压缩下图片质量不会变差
+      optipng: {
+        optimizationLevel: 7
+      },
+      // 有损压缩配置，有损压缩下图片质量可能会变差
+      pngquant: {
+        quality: [0.8, 0.9]
+      },
+      // svg 优化
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
     }),
     OptimizationPersist()
   ]
