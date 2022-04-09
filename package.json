@@ -5,15 +5,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "dev:open": "vite --port 3333 --open",
     "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit",
     "prettier": "prettier --write .",
     "lint": "npm run lint:script",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --quiet ./",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "commit": "cz"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "@vueuse/core": "^8.2.5",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.13",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
