@@ -32,6 +32,7 @@ specifiers:
   vite-plugin-eslint: ^1.3.0
   vite-plugin-inspect: ^0.4.3
   vite-plugin-optimize-persist: ^0.1.2
+  vite-plugin-package-config: ^0.1.1
   vite-plugin-pages: ^0.22.0
   vite-plugin-windicss: ^1.8.3
   vite-svg-loader: ^3.2.0
@@ -75,7 +76,8 @@ devDependencies:
   vite: 2.9.1_sass@1.50.0
   vite-plugin-eslint: 1.3.0_vite@2.9.1
   vite-plugin-inspect: 0.4.3_vite@2.9.1
-  vite-plugin-optimize-persist: 0.1.2_vite@2.9.1
+  vite-plugin-optimize-persist: 0.1.2_e8535a6275298a6eb7d603176e126257
+  vite-plugin-package-config: 0.1.1_vite@2.9.1
   vite-plugin-pages: 0.22.0_vite@2.9.1
   vite-plugin-windicss: 1.8.3_vite@2.9.1
   vite-svg-loader: 3.2.0
@@ -4511,7 +4513,7 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-optimize-persist/0.1.2_vite@2.9.1:
+  /vite-plugin-optimize-persist/0.1.2_e8535a6275298a6eb7d603176e126257:
     resolution: {integrity: sha512-H/Ebn2kZO8PvwUF08SsT5K5xMJNCWKoGX71+e9/ER3yNj7GHiFjNQlvGg5ih/zEx09MZ9m7WCxOwmEKbeIVzww==}
     peerDependencies:
       vite: ^2.0.0
@@ -4519,6 +4521,18 @@ packages:
     dependencies:
       debug: 4.3.4
       fs-extra: 10.0.1
+      vite: 2.9.1_sass@1.50.0
+      vite-plugin-package-config: 0.1.1_vite@2.9.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /vite-plugin-package-config/0.1.1_vite@2.9.1:
+    resolution: {integrity: sha512-w9B3I8ZnqoyhlbzimXjXNk85imrMZgvI9m8f6j3zonK5IVA5KXzpT+PZOHlDz8lqh1vqvoEI1uhy+ZDoLAiA/w==}
+    peerDependencies:
+      vite: ^2.0.0
+    dependencies:
+      debug: 4.3.4
       vite: 2.9.1_sass@1.50.0
     transitivePeerDependencies:
       - supports-color
