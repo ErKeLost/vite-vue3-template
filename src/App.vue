@@ -6,15 +6,16 @@ import four from '~/assets/4k.svg'
 </script>
 
 <template>
-  <div class="batman"></div>
-  <four />
+  <div>
+    <div class="batman"></div>
+    <four />
     <i-carbon-4k-filled
       style="color: #fba; font-size: 10rem"
       class="shadow-indigo-300"
     />
-  <!-- <img class="p-120px text-center" :src="batman" /> -->
+  </div>
+  <img class="p-120px text-center" :src="batman" />
 </template>
-
 <style>
 .batman {
   background-image: url(~/assets/batman.png);
