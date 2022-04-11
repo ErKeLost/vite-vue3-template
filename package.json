@@ -75,7 +75,6 @@
     "optimizeDeps": {
       "include": [
         "@vueuse/core",
-        "naive-ui",
         "nprogress",
         "pinia",
         "vue",
