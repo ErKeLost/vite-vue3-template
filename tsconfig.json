@@ -13,12 +13,9 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
     "types": ["vite/client", "vite-plugin-pages/client"],
-    "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
-      "~/*": ["src/*"],
-      "/#/*": ["types/*"]
+      "~/*": ["src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

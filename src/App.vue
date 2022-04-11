@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import batman from '~/assets/batman.png'
+// import batman from '~/assets/a.jpg'
 import four from '~/assets/4k.svg'
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
@@ -14,11 +14,11 @@ import four from '~/assets/4k.svg'
       class="shadow-indigo-300"
     />
   </div>
-  <img class="p-120px text-center" :src="batman" />
+  <!-- <img class="p-120px text-center" :src="batman" /> -->
 </template>
 <style>
 .batman {
-  background-image: url(~/assets/batman.png);
+  background-image: url(~/assets/a.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
