@@ -1,13 +1,13 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import windi from 'vite-plugin-windicss'
 import viteEslint from 'vite-plugin-eslint'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import legacy from '@vitejs/plugin-legacy'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
+import Unocss from 'unocss/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Inspect from 'vite-plugin-inspect'
 import Pages from 'vite-plugin-pages'
@@ -15,7 +15,8 @@ import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 // import { ConfigEnv } from 'vite'
-import viteImagemin from 'vite-plugin-imagemin'
+// import viteImagemin from 'vite-plugin-imagemin'
+// "vite-plugin-imagemin": "^0.6.1",
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 function pathResolve(dir: string) {
   return path.resolve(process.cwd(), '.', dir)
@@ -98,7 +99,6 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages(),
     Inspect(), // 仅适用于开发模式
-    windi(),
     viteEslint(),
     PkgConfig(),
     // vite need esm browser ? i dont test this plugin  // 2022 . 3 . 12
@@ -106,6 +106,7 @@ export default defineConfig({
       targets: ['ie >= 11'],
       additionalLegacyPolyfills: ['regenerator-runtime/runtime']
     }),
+    Unocss(),
     svgLoader(),
     AutoImport({
       dts: './src/auto-imports.d.ts',
@@ -149,28 +150,28 @@ export default defineConfig({
       compiler: 'vue3',
       autoInstall: true
     }),
-    viteImagemin({
-      // 无损压缩配置，无损压缩下图片质量不会变差
-      optipng: {
-        optimizationLevel: 7
-      },
-      // 有损压缩配置，有损压缩下图片质量可能会变差
-      pngquant: {
-        quality: [0.8, 0.9]
-      },
-      // svg 优化
-      svgo: {
-        plugins: [
-          {
-            name: 'removeViewBox'
-          },
-          {
-            name: 'removeEmptyAttrs',
-            active: false
-          }
-        ]
-      }
-    }),
+    // viteImagemin({
+    //   // 无损压缩配置，无损压缩下图片质量不会变差
+    //   optipng: {
+    //     optimizationLevel: 7
+    //   },
+    //   // 有损压缩配置，有损压缩下图片质量可能会变差
+    //   pngquant: {
+    //     quality: [0.8, 0.9]
+    //   },
+    //   // svg 优化
+    //   svgo: {
+    //     plugins: [
+    //       {
+    //         name: 'removeViewBox'
+    //       },
+    //       {
+    //         name: 'removeEmptyAttrs',
+    //         active: false
+    //       }
+    //     ]
+    //   }
+    // }),
     OptimizationPersist()
   ]
 })

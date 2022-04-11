@@ -9,10 +9,7 @@ import four from '~/assets/4k.svg'
   <div>
     <div class="batman"></div>
     <four />
-    <i-carbon-4k-filled
-      style="color: #fba; font-size: 10rem"
-      class="shadow-indigo-300"
-    />
+    <i-carbon-4k-filled text-9xl />
   </div>
   <!-- <img class="p-120px text-center" :src="batman" /> -->
 </template>
