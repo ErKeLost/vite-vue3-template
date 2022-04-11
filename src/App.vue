@@ -6,6 +6,7 @@ import four from '~/assets/4k.svg'
 </script>
 
 <template>
+  <adny-layout> container </adny-layout>
   <div>
     <div class="batman"></div>
     <four />

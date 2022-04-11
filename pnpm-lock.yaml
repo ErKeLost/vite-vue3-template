@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': ^16.2.3
   '@commitlint/config-conventional': ^16.2.1
-  '@erkelost/layout': ^2.1.6
+  '@erkelost/layout': ^2.1.7
   '@iconify/json': ^2.1.26
   '@types/node': ^17.0.23
   '@types/nprogress': ^0.2.0
@@ -52,7 +52,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 16.2.3
   '@commitlint/config-conventional': 16.2.1
-  '@erkelost/layout': 2.1.6_vue@3.2.31
+  '@erkelost/layout': 2.1.7_vue@3.2.31
   '@iconify/json': 2.1.26
   '@types/node': 17.0.23
   '@types/nprogress': 0.2.0
@@ -594,8 +594,8 @@ packages:
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}
     dev: true
 
-  /@erkelost/layout/2.1.6_vue@3.2.31:
-    resolution: {integrity: sha512-JA3BGow0z4fpq7xOSQdiRJ/UHTm9GvsRbcBtEN9UJP9/CRyPDiYLVfnl0p7KYlIdktrFo8/XyvMeiKiOswvLiw==}
+  /@erkelost/layout/2.1.7_vue@3.2.31:
+    resolution: {integrity: sha512-ynL9EpngoZGdXAymM/864jq5xg/EV3gvaOssShef8B3g+YaP0zp6ndrTwLIG+Gmw2JE+g8jVdj6MQbOmg2QWkQ==}
     peerDependencies:
       '@vue/composition-api': ^1.4.6
       vue: ^2.0.0 || >=3.0.0
