@@ -70,5 +70,17 @@
       "npm run lint:style",
       "git add --force"
     ]
+  },
+  "vite": {
+    "optimizeDeps": {
+      "include": [
+        "@vueuse/core",
+        "naive-ui",
+        "nprogress",
+        "pinia",
+        "vue",
+        "vue-router"
+      ]
+    }
   }
 }
