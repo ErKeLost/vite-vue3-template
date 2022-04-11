@@ -1,6 +1,7 @@
-import 'uno.css'
 import { createApp } from 'vue'
 import App from './App.vue'
+import 'uno.css'
+import { setupStore } from '~/store'
 import { setupCustomComponents } from '~/plugins'
 // import AdnyLayout from '@erkelost/layout'
 // const app = createApp(App)
@@ -13,7 +14,7 @@ async function bootStrap() {
   // 注册全局自定义指令
   //   setupDirectives(app)
   // 挂载状态管理
-  //   setupStore(app)
+  setupStore(app)
   // 挂载路由
   //   await setupRouter(app)
   // 路由准备就绪后挂载APP实例
