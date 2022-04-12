@@ -11,12 +11,12 @@ export function isProdFn(mode: string): boolean {
 }
 
 /**
- * Whether to generate package preview
+ * Whether to generate package preview 生成包预览
  */
 export function isReportMode(): boolean {
   return process.env.REPORT === 'true'
 }
-
+// 读取所有要处理的环境变量配置文件
 // Read all environment variable configuration files to process.env
 export function wrapperEnv(envConf: Recordable): ViteEnv {
   const ret: any = {}
