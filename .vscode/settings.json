@@ -1,0 +1,78 @@
+{
+  "workbench.iconTheme": "file-icons",
+  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
+  "editor.fontSize": 18.5,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "explorer.confirmDelete": false,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Vitesse Dark",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabCloseButton": "left",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.list.smoothScrolling": true,
+  "workbench.preferredDarkColorTheme": "Vitesse Dark",
+  "workbench.preferredLightColorTheme": "Vitesse Light",
+  "workbench.productIconTheme": "icons-carbon",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.expandMode": "singleClick",
+  "workbench.tree.indent": 10,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "cSpell.userWords": [
+    "adny",
+    "Antd",
+    "antdesign",
+    "commitlint",
+    "composables",
+    "demi",
+    "devui",
+    "elementplus",
+    "ERKELOST",
+    "esbuild",
+    "iconify",
+    "jzzx",
+    "nprogress",
+    "optipng",
+    "pinia",
+    "pnpm",
+    "preinstall",
+    "sider",
+    "typecheck",
+    "unocss",
+    "unplugin",
+    "vite",
+    "vitejs",
+    "vueuse",
+    "windi",
+    "windicss"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
