@@ -4,7 +4,8 @@ import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugin'
 // import { ConfigEnv } from 'vite'
-import { createProxy } from './build/vite/proxy'
+import { OUTPUT_DIR } from './build/constant'
+import { createProxy } from './build/vite/config/proxy'
 import { wrapperEnv } from './build/utils'
 // import { wrapperEnv } from './build/utils'
 // import pkg from './package.json'
@@ -55,6 +56,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     build: {
       minify: 'terser',
+      outDir: OUTPUT_DIR,
       brotliSize: false,
       // assets 样式 内联打包问题
       // assetsInlineLimit: 8 * 1024
