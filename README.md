@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://jzzx-docs.netlify.app/assets/adny.a429d162.jpg' width='200'/>
+  <img src='https://jzzx-docs.netlify.app/assets/adny.e203de98.png' width='200'/>
 </p>
 
 <p align='center'>
