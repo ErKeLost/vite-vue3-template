@@ -5,6 +5,7 @@
     "target": "es2016",
     "lib": ["DOM", "ESNext"],
     "strict": true,
+    "jsx": "preserve",
     "esModuleInterop": true,
     "incremental": false,
     "skipLibCheck": true,
@@ -14,8 +15,10 @@
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node", "vite/client", "vite-plugin-pages/client"],
+    "typeRoots": ["./node_modules/@types/", "./types"],
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "/#/*": ["types/*"]
     }
   },
   "include": [
@@ -24,13 +27,10 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "unocss.config.ts",
-    "types/**/*.d.ts",
-    "types/**/*.ts",
     "build/**/*.ts",
     "build/**/*.d.ts",
-    "mock/**/*.ts",
-    "components.d.ts",
     "vite.config.ts"
   ],
+  "exclude": ["node_modules", "dist", "**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
