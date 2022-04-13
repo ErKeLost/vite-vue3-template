@@ -7,7 +7,6 @@ import { createVitePlugins } from './build/vite/plugin'
 import { OUTPUT_DIR } from './build/constant'
 import { createProxy } from './build/vite/config/proxy'
 import { wrapperEnv } from './build/utils'
-// import { wrapperEnv } from './build/utils'
 // import pkg from './package.json'
 function pathResolve(dir: string) {
   return path.resolve(process.cwd(), '.', dir)
@@ -19,14 +18,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
-  const {
-    // VITE_PUBLIC_PATH,
-    // VITE_DROP_CONSOLE,
-    // VITE_PORT,
-    // VITE_GLOB_PROD_MOCK,
-    VITE_PROXY
-  } = viteEnv
-  console.log(VITE_PROXY)
+  const { VITE_PROXY } = viteEnv
+  console.log(createProxy(VITE_PROXY))
 
   // const isBuild = command === 'build'
   return {
