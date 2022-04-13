@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-light.svg' width='300'/>
+  <img src='https://jzzx-docs.netlify.app/assets/adny.a429d162.jpg' width='200'/>
 </p>
 
 <p align='center'>
