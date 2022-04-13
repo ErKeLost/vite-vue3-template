@@ -1,41 +1,182 @@
+// import {
+//   defineConfig,
+//   presetAttributify,
+//   presetIcons,
+//   presetUno,
+//   presetWebFonts
+//   // transformerDirectives,
+//   // transformerVariantGroup,
+// } from 'unocss'
+
+// export default defineConfig({
+//   shortcuts: [
+//     [
+//       'btn',
+//       'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'
+//     ],
+//     [
+//       'icon-btn',
+//       'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'
+//     ]
+//   ],
+//   presets: [
+//     presetUno(),
+//     presetAttributify(),
+//     presetIcons({
+//       scale: 1.2,
+//       warn: true
+//     }),
+//     presetWebFonts({
+//       fonts: {
+//         sans: 'DM Sans',
+//         serif: 'DM Serif Display',
+//         mono: 'DM Mono'
+//       }
+//     })
+//   ]
+//   // transformers: [
+//   //   transformerDirectives(),
+//   //   transformerVariantGroup(),
+//   // ],
+// })
 import {
   defineConfig,
-  presetAttributify,
+  // presetAttributify,
   presetIcons,
+  presetTypography,
   presetUno,
-  presetWebFonts
-  // transformerDirectives,
-  // transformerVariantGroup,
+  presetWebFonts,
+  presetWind,
+  transformerDirectives,
+  transformerVariantGroup
 } from 'unocss'
+// import { getWindiBreakpoint } from './src/enums/breakpointEnum'
 
 export default defineConfig({
+  include: [
+    /src\/(.+\/)*.+\.(vue|html|jsx|tsx|ts|js|json)$/,
+    /public\/(.+\/)*.+\.html$/,
+    /index.html$/
+  ],
+  exclude: ['node_modules', '.git'],
   shortcuts: [
     [
-      'btn',
-      'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'
+      'app-ease-spin',
+      'animate-name-spin-rotate animate-count-infinite animate-ease-[cubic-bezier(0.37,0.35,0.35,0.97)]'
     ],
     [
-      'icon-btn',
-      'text-[0.9em] inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'
+      'app-layout-header-anction-icon',
+      'cursor-pointer h-full px-2.5 flex justify-between items-center hover:bg-$hover-color'
+    ],
+    [
+      'app-mtabs-anction-btn-wrapper',
+      'flex-1 border-l border-$app-border-color cursor-pointer transition-property-colors ease-in-out-300 flex-jc-ac text-$app-text-color'
+    ],
+    ['app-mtabs-anction-btn', 'op60 group-hover:op100 text-18px']
+  ],
+  theme: {
+    // screen: getWindiBreakpoint,
+    fontFamily: {
+      segoe: [
+        'Segoe UI',
+        'Roboto',
+        'Helvetica Neue',
+        'Arial',
+        'Noto Sans',
+        'sans-serif'
+      ]
+    },
+    outline: {
+      primary: ['2px solid var(--app-primary-color)', '0px']
+    }
+  },
+  rules: [
+    [
+      /^flex((-(js|je|jc|jb|ja|jev|as|ae|ac|ab|ast|row|rowr|col|colr)){1,3})$/,
+      ([, keyStr]) => {
+        return {
+          display: 'flex',
+          ...Object.fromEntries(
+            keyStr
+              .split('-')
+              .slice(1)
+              .map((item) => {
+                return handleShortKeys(item)
+              })
+          )
+        }
+      }
+    ],
+    [
+      /^ease-(?:(in|out|in-out)-)(\d+)$/,
+      ([, timingFun, duration]) => {
+        return {
+          'transition-timing-function': `var(--app-bezier${
+            ['in', 'out'].includes(timingFun) ? `-${timingFun}` : ''
+          })`,
+          'transition-duration': `${duration}ms`
+        }
+      }
     ]
   ],
   presets: [
     presetUno(),
-    presetAttributify(),
+    // presetAttributify({
+    //   prefix: 'u:',
+    //   prefixedOnly: false,
+    // }),
+    presetWind(),
     presetIcons({
-      scale: 1.2,
+      scale: 1,
       warn: true
     }),
+    presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono'
+        'dm-sans': 'DM Sans',
+        'dm-serif': 'DM Serif Display'
       }
     })
-  ]
-  // transformers: [
-  //   transformerDirectives(),
-  //   transformerVariantGroup(),
-  // ],
+  ],
+  transformers: [transformerDirectives(), transformerVariantGroup()]
 })
+
+function handleShortKeys(key: string): string[] {
+  const J = 'justify-content'
+  const A = 'align-items'
+  const D = 'flex-direction'
+  switch (key) {
+    case 'js':
+      return [J, 'flex-start']
+    case 'je':
+      return [J, 'flex-end']
+    case 'jc':
+      return [J, 'center']
+    case 'jb':
+      return [J, 'space-between']
+    case 'ja':
+      return [J, 'space-around']
+    case 'jev':
+      return [J, 'space-evenly']
+    case 'as':
+      return [A, 'flex-start']
+    case 'ae':
+      return [A, 'flex-end']
+    case 'ac':
+      return [A, 'center']
+    case 'ab':
+      return [A, 'baseline']
+    case 'ast':
+      return [A, 'stretch']
+    case 'row':
+      return [D, 'row']
+    case 'rowr':
+      return [D, 'row-reverse']
+    case 'col':
+      return [D, 'column']
+    case 'colr':
+      return [D, 'column-reverse']
+    default:
+      return []
+  }
+}
