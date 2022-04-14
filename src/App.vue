@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // import batman from '~/assets/a.jpg'
-import four from '~/assets/4k.svg'
-import { useUserStore } from '~/store/modules/test'
+import four from '@/assets/4k.svg'
+import { useUserStore } from '@/store/modules/test'
 const userStore = useUserStore()
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
@@ -18,7 +18,7 @@ const userStore = useUserStore()
 </template>
 <style>
 .batman {
-  background-image: url(~/assets/a.jpg);
+  background-image: url(@/assets/a.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;

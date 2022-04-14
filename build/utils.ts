@@ -16,9 +16,9 @@ export function isProdFn(mode: string): boolean {
 export function isReportMode(): boolean {
   return process.env.REPORT === 'true'
 }
-// 读取所有要处理的环境变量配置文件
+
 // Read all environment variable configuration files to process.env
-export function wrapperEnv(envConf: Recordable): ViteEnv {
+export function wrapperEnv(envConf: any): any {
   const ret: any = {}
 
   for (const envName of Object.keys(envConf)) {

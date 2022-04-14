@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugin'
@@ -7,24 +7,26 @@ import { createProxy } from './build/vite/config/proxy'
 import { wrapperEnv } from './build/utils'
 import { viteDefine } from './build/vite/config/define'
 function pathResolve(dir: string) {
-  return path.resolve(process.cwd(), '.', dir)
+  return resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
-  const { VITE_PROXY, VITE_PUBLIC_PATH } = viteEnv
+  const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
+  console.log(viteEnv)
   const isBuild = command === 'build'
   return {
     base: VITE_PUBLIC_PATH,
     resolve: {
-      // alias: {
-      //   '~/': `${path.resolve(__dirname, 'src')}/`
-      // }
       alias: [
         {
-          find: '~',
+          find: /\/#\//,
+          replacement: pathResolve('types') + '/'
+        },
+        {
+          find: '@',
           replacement: pathResolve('src') + '/'
         }
       ]
@@ -35,7 +37,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         scss: {
           // charset: false,
           additionalData: `
-      @import "~/styles/variables.scss";
+      @import "@/styles/variables.scss";
     `,
           javascriptEnabled: true
         }

@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'uno.css'
-import { setupStore } from '~/store'
-import { setupCustomComponents } from '~/plugins'
+import { setupStore } from '@/store'
+import { setupCustomComponents } from '@/plugins'
 // import AdnyLayout from '@erkelost/layout'
 // const app = createApp(App)
 // app.component('AdnyLayout', AdnyLayout)

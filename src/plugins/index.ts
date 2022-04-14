@@ -1,3 +1,3 @@
-export { setupDirectives } from '~/plugins/directives'
-export { setupCustomComponents } from '~/plugins/customComponents'
-export { setupGlobalMethods } from '~/plugins/globalMethods'
+export { setupDirectives } from './directives'
+export { setupCustomComponents } from './customComponents'
+export { setupGlobalMethods } from './globalMethods'

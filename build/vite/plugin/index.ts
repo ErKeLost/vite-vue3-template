@@ -1,4 +1,5 @@
 import type { Plugin } from 'vite'
+import type { ConfigEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import viteEslint from 'vite-plugin-eslint'
 import VueJsx from '@vitejs/plugin-vue-jsx'
@@ -16,7 +17,7 @@ import PkgConfig from 'vite-plugin-package-config'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+export function createVitePlugins(viteEnv: ConfigEnv, isBuild: boolean) {
   console.log(viteEnv, isBuild)
   const vitePlugins: (Plugin | Plugin[])[] = [
     vue(),
