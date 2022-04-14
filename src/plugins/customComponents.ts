@@ -7,7 +7,6 @@ import AdnyLayout from '@erkelost/layout'
 const registerComponents = [AdnyLayout]
 export function setupCustomComponents(app: App) {
   registerComponents.forEach((component) => {
-    console.log(component)
     app.component(component.name, component)
   })
 }
