@@ -27,10 +27,12 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "unocss.config.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
     "build/**/*.ts",
     "build/**/*.d.ts",
     "vite.config.ts"
   ],
-  "exclude": ["node_modules", "dist", "**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["node_modules", "dist", "**/*.js"]
+  // "references": [{ "path": "./tsconfig.node.json" }]
 }

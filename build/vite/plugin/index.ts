@@ -16,16 +16,8 @@ import PkgConfig from 'vite-plugin-package-config'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",
-export function createVitePlugins() {
-  // viteEnv: ViteEnv,
-  // isBuild: boolean,
-  // prodMock
-  // const {
-  //   VITE_USE_MOCK,
-  //   VITE_BUILD_COMPRESS,
-  //   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE
-  // } = viteEnv
-
+export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+  console.log(viteEnv, isBuild)
   const vitePlugins: (Plugin | Plugin[])[] = [
     vue(),
 
@@ -108,18 +100,5 @@ export function createVitePlugins() {
     // }),
     OptimizationPersist()
   ]
-
-  // vite-plugin-html
-  // vitePlugins.push(configHtmlPlugin(viteEnv, isBuild))
-
-  // if (isBuild) {
-  //   // rollup-plugin-gzip
-  //   vitePlugins.push(
-  //     configCompressPlugin(
-  //       VITE_BUILD_COMPRESS,
-  //       VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE
-  //     )
-  //   )
-  // }
   return vitePlugins
 }

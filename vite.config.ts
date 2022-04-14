@@ -1,29 +1,23 @@
 import path from 'path'
 import type { UserConfig, ConfigEnv } from 'vite'
-// import { defineConfig } from 'vite'
 import { loadEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugin'
-// import { ConfigEnv } from 'vite'
 import { OUTPUT_DIR } from './build/constant'
 import { createProxy } from './build/vite/config/proxy'
 import { wrapperEnv } from './build/utils'
-// import pkg from './package.json'
+import { viteDefine } from './build/vite/config/define'
 function pathResolve(dir: string) {
   return path.resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfig => {
-  console.log(command)
-
   const root = process.cwd()
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
-  const { VITE_PROXY } = viteEnv
-  console.log(createProxy(VITE_PROXY))
-
-  // const isBuild = command === 'build'
+  const { VITE_PROXY, VITE_PUBLIC_PATH } = viteEnv
+  const isBuild = command === 'build'
   return {
-    base: './',
+    base: VITE_PUBLIC_PATH,
     resolve: {
       // alias: {
       //   '~/': `${path.resolve(__dirname, 'src')}/`
@@ -89,11 +83,12 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       //   }
       // }
     },
+    define: viteDefine,
     optimizeDeps: {
       // 按需加载的依赖都可以声明到这个数组里
       // 配置为一个字符串数组，将 `lodash-es` 和 `vue`两个包强制进行预构建
       include: ['@vueuse/core', 'vue']
     },
-    plugins: createVitePlugins()
+    plugins: createVitePlugins(viteEnv, isBuild)
   }
 }
