@@ -10,6 +10,7 @@ import Unocss from 'unocss/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Inspect from 'vite-plugin-inspect'
 import Pages from 'vite-plugin-pages'
+import GlobPlugin from 'vite-plugin-glob'
 import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
@@ -34,6 +35,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     }),
     Unocss(),
     svgLoader(),
+    GlobPlugin(),
     AutoImport({
       dts: './src/auto-imports.d.ts',
       // imports: ['vue', '@vueuse/core'],
