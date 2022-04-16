@@ -15,7 +15,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
   const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
-  console.log(viteEnv)
   const isBuild = command === 'build'
   return {
     base: VITE_PUBLIC_PATH,
