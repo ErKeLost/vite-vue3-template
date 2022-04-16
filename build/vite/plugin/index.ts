@@ -37,7 +37,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     svgLoader(),
     GlobPlugin(),
     AutoImport({
-      dts: './src/auto-imports.d.ts',
+      dts: './types/auto-imports.d.ts',
       // imports: ['vue', '@vueuse/core'],
       // Generate corresponding .eslintrc-auto-import.json file.
       // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
@@ -60,7 +60,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     }),
     // https://github.com/antfu/vite-plugin-components
     Components({
-      dts: './src/components.d.ts',
+      dts: './types/components.d.ts',
       extensions: ['vue', 'tsx'],
       deep: true,
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/],
