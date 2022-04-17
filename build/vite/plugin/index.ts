@@ -15,6 +15,7 @@ import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
+import { visualizer } from 'rollup-plugin-visualizer'
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
@@ -100,7 +101,11 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     //     ]
     //   }
     // }),
-    OptimizationPersist()
+    OptimizationPersist(),
+    visualizer({
+      // 打包完成后自动打开浏览器，显示产物体积报告
+      open: true
+    })
   ]
   return vitePlugins
 }
