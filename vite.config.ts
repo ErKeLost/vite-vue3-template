@@ -43,6 +43,15 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       }
     },
     build: {
+      // 类型: boolean | 'esbuild' | 'terser'
+      // 默认为 `esbuild`
+      // minify: 'esbuild',
+      // 产物目标环境
+      // 为了线上的稳定性，最好还是将 target 参数设置为ECMA语法的最低版本es2015/es6。
+      // target: 'modules',
+      // 如果 minify 为 terser，可以通过下面的参数配置具体行为
+      // https://terser.org/docs/api-reference#minify-options
+      // terserOptions: {}
       minify: 'terser',
       outDir: OUTPUT_DIR,
       brotliSize: false,
@@ -65,7 +74,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           entryFileNames: 'static/js/[name]-[hash].js',
           assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
         }
-      }
+      },
+      // 设置 CSS 的目标环境  需要兼容安卓端微信的 webview 时， 需要将 build.cssTarget 设置为 chrome61
+      cssTarget: ''
     },
     server: {
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
