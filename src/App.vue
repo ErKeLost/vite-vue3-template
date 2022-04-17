@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import exception from '@/views/exception/403.vue'
 // import batman from '~/assets/a.jpg'
-import four from '@/assets/4k.svg'
-import { useUserStore } from '@/store/modules/test'
-const userStore = useUserStore()
+// import four from '@/assets/4k.svg'
+// import { useUserStore } from '@/store/modules/test'
+// const userStore = useUserStore()
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 </script>
 
 <template>
-  <adny-layout> {{ userStore.name }} </adny-layout>
+  <exception />
+  <!-- <adny-layout> {{ userStore.name }} </adny-layout>
   <div>
     <div class="batman"></div>
     <four />
     <i-carbon-4k-filled text-9xl />
-  </div>
+  </div> -->
   <!-- <img class="p-120px text-center" :src="batman" /> -->
 </template>
 <style>

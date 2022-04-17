@@ -14,8 +14,13 @@ import GlobPlugin from 'vite-plugin-glob'
 import svgLoader from 'vite-svg-loader'
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { resolvePath } from '../../utils'
+const vitePath = resolvePath('../../../', import.meta.url)
+console.log(vitePath)
+
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
@@ -66,17 +71,25 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
       deep: true,
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/],
       // imports 指定组件所在位置，默认为 src/components
-      dirs: ['src/components/', 'src/layout/', 'src/views'],
+      dirs: ['src/components/', 'src/layout/', 'src/views', 'src/assets'],
       resolvers: [
         // IconsResolver({
         //   enabledCollections: ['a']
         // }),
-        IconsResolver(),
+        IconsResolver({
+          customCollections: ['custom'],
+          componentPrefix: 'icon'
+        }),
         VueUseComponentsResolver()
       ]
     }),
     Icons({
       compiler: 'vue3',
+      customCollections: {
+        custom: FileSystemIconLoader(`${vitePath.src}/assets/svg`)
+      },
+      scale: 1,
+      defaultClass: 'inline-block',
       autoInstall: true
     }),
     // viteImagemin({

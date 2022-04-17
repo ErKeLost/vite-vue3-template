@@ -4,7 +4,13 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ICarbon4kFilled: typeof import('~icons/carbon/4k-filled')['default']
+    403: typeof import('./../src/views/exception/403.vue')['default']
+    404: typeof import('./../src/views/exception/404.vue')['default']
+    500: typeof import('./../src/views/exception/500.vue')['default']
+    ExceptionBase: typeof import('./../src/components/exception/ExceptionBase.vue')['default']
+    IconCustomNoPermission: typeof import('~icons/custom/no-permission')['default']
+    IconCustomNotFound: typeof import('~icons/custom/not-found')['default']
+    IconCustomServiceError: typeof import('~icons/custom/service-error')['default']
   }
 }
 

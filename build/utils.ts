@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import dotenv from 'dotenv'
+import { fileURLToPath } from 'url'
 
 export function isDevFn(mode: string): boolean {
   return mode === 'development'
@@ -74,4 +75,18 @@ export function getEnvConfig(
  */
 export function getRootPath(...dir: string[]) {
   return path.resolve(process.cwd(), ...dir)
+}
+
+/**
+ * 解析路径
+ * @param basePath - 基础路径
+ */
+export function resolvePath(rootPath: string, basePath: string) {
+  const root = fileURLToPath(new URL(rootPath, basePath))
+  const src = `${root}src`
+
+  return {
+    root,
+    src
+  }
 }
