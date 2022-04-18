@@ -1,8 +1,9 @@
-import type { AppRouteRecordRaw } from '@/router/types'
+// import type { AppRouteRecordRaw } from '@/router/types'
 import { ErrorPage, RedirectName, Layout } from '@/router/constant'
 
 // 404 on a page
-export const ErrorPageRoute: AppRouteRecordRaw = {
+// export const ErrorPageRoute: AppRouteRecordRaw = {
+export const ErrorPageRoute: any = {
   path: '/:path(.*)*',
   name: 'ErrorPage',
   component: Layout,
@@ -23,7 +24,8 @@ export const ErrorPageRoute: AppRouteRecordRaw = {
   ]
 }
 
-export const RedirectRoute: AppRouteRecordRaw = {
+// export const RedirectRoute: AppRouteRecordRaw = {
+export const RedirectRoute: any = {
   path: '/redirect',
   name: RedirectName,
   component: Layout,

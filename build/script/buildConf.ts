@@ -54,3 +54,4 @@
 //   const configFileName = getConfigFileName(config)
 //   createConfig({ config, configName: configFileName })
 // }
+export {}
