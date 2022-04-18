@@ -1,33 +1,19 @@
 <script setup lang="ts">
-import exception from '@/views/exception/403.vue'
-// import batman from '~/assets/a.jpg'
-// import four from '@/assets/4k.svg'
-// import { useUserStore } from '@/store/modules/test'
-// const userStore = useUserStore()
 // This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 </script>
 
 <template>
-  <exception />
-  <!-- <adny-layout> {{ userStore.name }} </adny-layout>
-  <div>
-    <div class="batman"></div>
-    <four />
-    <i-carbon-4k-filled text-9xl />
-  </div> -->
-  <!-- <img class="p-120px text-center" :src="batman" /> -->
+  <router-view />
 </template>
+
 <style>
-.batman {
-  background-image: url(@/assets/a.jpg);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
