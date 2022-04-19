@@ -105,3 +105,6 @@ declare module '*.vue' {
   const Component: DefineComponent<{}, {}, any>
   export default Component
 }
+import { RouteComponent } from 'vue-router';
+declare type Lazy<T> = () => Promise<T>;
+declare type RawRouteComponent = RouteComponent | Lazy<RouteComponent>;
