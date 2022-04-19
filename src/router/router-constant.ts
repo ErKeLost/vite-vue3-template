@@ -1,3 +1,5 @@
+import { RouteRecordRaw } from 'vue-router'
+
 // import type { AppRouteRecordRaw } from '@/router/types'
 export const RedirectName = 'Redirect'
 
@@ -11,7 +13,9 @@ export const ParentLayout = () => import('@/layout/parentLayout.vue')
 
 // 404 on a page
 // export const ErrorPageRoute: AppRouteRecordRaw = {
-export const constantRoutes: AppRouteRecordRaw.Route[] = [
+// export const constantRoutes: AppRouteRecordRaw.Route[] = [
+// export const constantRoutes: AppRouteRecordRaw.Route[] = [
+export const constantRoutes: RouteRecordRaw[] = [
   {
     name: 'not-permission',
     path: '/not-permission',
@@ -51,23 +55,23 @@ export const constantRoutes: AppRouteRecordRaw.Route[] = [
 ]
 
 // export const RedirectRoute: AppRouteRecordRaw = {
-export const RedirectRoute: any = {
-  path: '/redirect',
-  name: RedirectName,
-  component: Layout,
-  meta: {
-    title: RedirectName,
-    hideBreadcrumb: true
-  },
-  children: [
-    {
-      path: '/redirect/:path(.*)',
-      name: RedirectName,
-      component: () => import('@/views/redirect/index.vue'),
-      meta: {
-        title: RedirectName,
-        hideBreadcrumb: true
-      }
-    }
-  ]
-}
+// export const RedirectRoute: any = {
+//   path: '/redirect',
+//   name: RedirectName,
+//   component: Layout,
+//   meta: {
+//     title: RedirectName,
+//     hideBreadcrumb: true
+//   },
+//   children: [
+//     {
+//       path: '/redirect/:path(.*)',
+//       name: RedirectName,
+//       component: () => import('@/views/redirect/index.vue'),
+//       meta: {
+//         title: RedirectName,
+//         hideBreadcrumb: true
+//       }
+//     }
+//   ]
+// }
