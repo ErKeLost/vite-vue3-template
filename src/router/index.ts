@@ -5,6 +5,9 @@ import {
   // createWebHistory,
   RouteRecordRaw
 } from 'vue-router'
+const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
+console.log(VITE_HASH_ROUTE, VITE_BASE_URL)
+
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 // import { createRouterGuards } from './router-guards'
@@ -54,6 +57,7 @@ routeModuleList.sort(sortRoute)
 
 const router = createRouter({
   history: createWebHashHistory(''),
+  // history: VITE_HASH_ROUTE === 'true' ? createWebHashHistory(VITE_BASE_URL) : createWebHistory(VITE_BASE_URL),
   routes: routeModuleList,
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
