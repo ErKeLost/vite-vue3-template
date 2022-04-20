@@ -17,10 +17,10 @@ declare global {
     }
     lastBuildTime: string
   }
-  // declare interface Window {
-  //   // Global vue app instance
-  //   __APP__: App<Element>;
-  // }
+  declare interface Window {
+    // Global vue app instance
+    __APP__: App<Element>;
+  }
 
   // vue
   declare type PropType<T> = VuePropType<T>
@@ -100,18 +100,36 @@ declare module 'vue' {
     | { new (): ComponentPublicInstance<Props> }
     | FunctionalComponent<Props>
 }
-declare module '*.vue' {
-  import { DefineComponent } from 'vue'
-  const Component: DefineComponent<{}, {}, any>
-  export default Component
+declare interface Fn<T = any, R = T> {
+  (...arg: T[]): R
 }
-/**
- * env环境类型
- * - dev: 后台开发环境
- * - test: 后台测试环境
- * - prod: 后台生产环境
- */
-type EnvType = 'dev' | 'test' | 'prod'
-import { RouteComponent } from 'vue-router';
-declare type Lazy<T> = () => Promise<T>;
-declare type RawRouteComponent = RouteComponent | Lazy<RouteComponent>;
+
+declare interface PromiseFn<T = any, R = T> {
+  (...arg: T[]): Promise<R>
+}
+
+declare type RefType<T> = T | null
+
+declare type LabelValueOptions = {
+  label: string
+  value: any
+  disabled: boolean
+  [key: string]: string | number | boolean
+}[]
+
+declare type EmitType = (event: string, ...args: any[]) => void
+
+declare type TargetContext = '_self' | '_blank'
+
+declare interface ComponentElRef<T extends HTMLElement = HTMLDivElement> {
+  $el: T
+}
+
+declare type ComponentRef<T extends HTMLElement = HTMLDivElement> =
+  ComponentElRef<T> | null
+
+declare type ElRef<T extends HTMLElement = HTMLDivElement> = Nullable<T>
+
+export type DynamicProps<T> = {
+  [P in keyof T]: Ref<T[P]> | T[P] | ComputedRef<T[P]>
+}
