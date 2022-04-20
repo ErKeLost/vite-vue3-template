@@ -49,4 +49,4 @@ const constantRoutes: Array<RouteRecordRaw> = [
   }
 ]
 
-export { constantRoutes }
+export default constantRoutes

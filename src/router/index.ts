@@ -1,33 +1,14 @@
 import { App } from 'vue'
 import {
   createRouter,
-  createWebHashHistory,
+  createWebHashHistory
   // createWebHistory,
-  RouteRecordRaw
+  // RouteRecordRaw
 } from 'vue-router'
 import { constantRoutes } from './router-constant'
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
-// import { createRouterGuards } from './router-guards'
-// import { handleModuleRoutes } from "@/utils/router/modules";
-const modules = import.meta.globEager('./modules/**/*.ts')
-// const routes = handleModuleRoutes(modules);
-console.log(modules)
-
-const routeModuleList: RouteRecordRaw[] = []
-
-Object.keys(modules).forEach((key) => {
-  const mod = modules[key].default || {}
-  const modList = Array.isArray(mod) ? [...mod] : [mod]
-  routeModuleList.push(...modList)
-})
-
-function sortRoute(a: any, b: any) {
-  return (a.meta?.sort || 0) - (b.meta?.sort || 0)
-}
-
-routeModuleList.sort(sortRoute)
-
+import { createRouterGuards } from './router-guards'
 // export const RootRoute: RouteRecordRaw = {
 //   path: '/',
 //   name: 'Root',
@@ -64,7 +45,7 @@ const router = createRouter({
 export function setupRouter(app: App) {
   app.use(router)
   // 创建路由守卫
-  // createRouterGuards(router)
+  createRouterGuards(router)
 }
 
 export default router
