@@ -17,7 +17,6 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   // const { VITE_PUBLIC_PATH } = viteEnv
   const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
   const isBuild = command === 'build'
-  createViteProxy(VITE_PROXY)
   return {
     base: VITE_PUBLIC_PATH,
     resolve: {
