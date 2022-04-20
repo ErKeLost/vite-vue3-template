@@ -41,6 +41,8 @@ const httpsRE = /^https:\/\//
  */
 export function createViteProxy(list: ProxyList = []) {
   const ret: ProxyTargetList = {}
+  console.log(list)
+
   for (const [prefix, target] of list) {
     const isHttps = httpsRE.test(target)
 

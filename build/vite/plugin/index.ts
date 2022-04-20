@@ -19,7 +19,7 @@ import { VueUseComponentsResolver } from 'unplugin-vue-components/resolvers'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { resolvePath } from '../../utils'
 const vitePath = resolvePath('../../../', import.meta.url)
-console.log(vitePath)
+// console.log(vitePath)
 
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",

@@ -17,11 +17,7 @@ function sortRoutes(routes: RouteRecordRaw[]) {
 export function handleModuleRoutes(modules: any) {
   const routeModuleList: RouteRecordRaw[] = []
   Object.keys(modules).forEach((key) => {
-    console.log(key)
-
     const mod = modules[key].default || {}
-    console.log(modules[key].default)
-
     const modList = Array.isArray(mod) ? [...mod] : [mod]
     if (modList) {
       routeModuleList.push(...modList)
