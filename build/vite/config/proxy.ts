@@ -1,37 +1,23 @@
-/**
- * 用于分析。环境。开发代理配置
- */
 import type { ProxyOptions } from 'vite'
-
-type ProxyItem = [string, string]
-
-type ProxyList = ProxyItem[]
-
-type ProxyTargetList = Record<
-  string,
-  ProxyOptions & { rewrite: (path: string) => string }
->
-
-const httpsRE = /^https:\/\//
+import { getEnvConfig } from '../../../.env-config'
 
 /**
- * Generate proxy
- * @param list
+ * 设置网络代理
+ * @param viteEnv - vite环境描述
  */
-export function createProxy(list: ProxyList = []) {
-  const ret: ProxyTargetList = {}
-  for (const [prefix, target] of list) {
-    const isHttps = httpsRE.test(target)
+export function createViteProxy(viteEnv: ImportMetaEnv) {
+  const isOpenProxy = viteEnv.VITE_HTTP_PROXY === 'true'
+  if (!isOpenProxy) return undefined
 
-    // https://github.com/http-party/node-http-proxy#options
-    ret[prefix] = {
-      target: target,
+  const { http } = getEnvConfig(viteEnv)
+
+  const proxy: Record<string, string | ProxyOptions> = {
+    [http.proxy]: {
+      target: http.url,
       changeOrigin: true,
-      ws: true,
-      rewrite: (path) => path.replace(new RegExp(`^${prefix}`), ''),
-      // https is require secure=false
-      ...(isHttps ? { secure: false } : {})
+      rewrite: (path) => path.replace(new RegExp(`^${http.proxy}`), '')
     }
   }
-  return ret
+
+  return proxy
 }

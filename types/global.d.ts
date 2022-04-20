@@ -105,3 +105,10 @@ declare module '*.vue' {
   const Component: DefineComponent<{}, {}, any>
   export default Component
 }
+/**
+ * env环境类型
+ * - dev: 后台开发环境
+ * - test: 后台测试环境
+ * - prod: 后台生产环境
+ */
+type EnvType = 'dev' | 'test' | 'prod'

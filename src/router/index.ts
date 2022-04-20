@@ -5,9 +5,6 @@ import {
   // createWebHistory,
   RouteRecordRaw
 } from 'vue-router'
-const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
-console.log(VITE_HASH_ROUTE, VITE_BASE_URL)
-
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 // import { createRouterGuards } from './router-guards'
