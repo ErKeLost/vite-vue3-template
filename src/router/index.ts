@@ -5,6 +5,7 @@ import {
   // createWebHistory,
   RouteRecordRaw
 } from 'vue-router'
+import { constantRoutes } from './router-constant'
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 // import { createRouterGuards } from './router-guards'
@@ -50,12 +51,12 @@ routeModuleList.sort(sortRoute)
 // export const asyncRoutes = [...routeModuleList]
 
 // //普通路由 无需验证权限
-// export const constantRouter: any[] = [LoginRoute, RootRoute, RedirectRoute]
+// export const constantRouter: any[] = [constantRoutes]
 
 const router = createRouter({
   history: createWebHashHistory(''),
   // history: VITE_HASH_ROUTE === 'true' ? createWebHashHistory(VITE_BASE_URL) : createWebHistory(VITE_BASE_URL),
-  routes: routeModuleList,
+  routes: constantRoutes,
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })

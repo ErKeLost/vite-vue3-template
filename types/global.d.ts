@@ -112,3 +112,6 @@ declare module '*.vue' {
  * - prod: 后台生产环境
  */
 type EnvType = 'dev' | 'test' | 'prod'
+import { RouteComponent } from 'vue-router';
+declare type Lazy<T> = () => Promise<T>;
+declare type RawRouteComponent = RouteComponent | Lazy<RouteComponent>;

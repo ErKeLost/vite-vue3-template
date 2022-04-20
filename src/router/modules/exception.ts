@@ -10,7 +10,7 @@ import { RouteRecordRaw } from 'vue-router'
  * @param meta.sort 排序越小越排前
  *
  * */
-const routes: Array<RouteRecordRaw> = [
+const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/exception',
     name: 'Exception',
@@ -49,4 +49,4 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-export default routes
+export { constantRoutes }
