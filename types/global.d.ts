@@ -19,7 +19,7 @@ declare global {
   }
   declare interface Window {
     // Global vue app instance
-    __APP__: App<Element>;
+    __APP__: App<Element>
   }
 
   // vue
@@ -58,15 +58,17 @@ declare global {
   }
 
   declare interface ViteEnv {
-    VITE_PORT: number
-    VITE_PUBLIC_PATH: string
-    VITE_GLOB_APP_TITLE: string
-    VITE_GLOB_APP_SHORT_NAME: string
-    VITE_DROP_CONSOLE: boolean
-    VITE_GLOB_IMG_URL: string
-    VITE_PROXY: [string, string][]
-    VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
-    VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean
+    readonly VITE_PORT: number
+    readonly VITE_PUBLIC_PATH: string
+    readonly VITE_GLOB_APP_TITLE: string
+    readonly VITE_GLOB_APP_SHORT_NAME: string
+    readonly VITE_DROP_CONSOLE: boolean
+    readonly VITE_GLOB_IMG_URL: string
+    readonly VITE_PROXY: [string, string][]
+    readonly VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none'
+    readonly VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean
+    readonly VITE_VISUALIZER?: 'true' | 'false'
+    readonly VITE_HASH_ROUTE?: 'true' | 'false'
   }
 
   declare function parseInt(s: string | number, radix?: number): number
