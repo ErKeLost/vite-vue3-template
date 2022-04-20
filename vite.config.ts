@@ -3,7 +3,7 @@ import type { UserConfig, ConfigEnv } from 'vite'
 import { loadEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugin'
 import { OUTPUT_DIR } from './build/constant'
-import { createProxy } from './build/vite/config/proxy'
+// import { createViteProxy } from './build/vite/config/proxy'
 import { wrapperEnv } from './build/utils'
 import { viteDefine } from './build/vite/config/define'
 function pathResolve(dir: string) {
@@ -14,7 +14,8 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const root = process.cwd()
   const env = loadEnv(mode, root)
   const viteEnv = wrapperEnv(env)
-  const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
+  const { VITE_PUBLIC_PATH } = viteEnv
+  // const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
   const isBuild = command === 'build'
   return {
     base: VITE_PUBLIC_PATH,
@@ -83,9 +84,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       port: 8080, // 端口号
       // open: true, // 自动打开浏览器
       cors: true, // 跨域设置允许
-      strictPort: true, // 如果端口已占用直接退出
+      strictPort: true // 如果端口已占用直接退出
       // 接口代理
-      proxy: createProxy(VITE_PROXY)
+      // proxy: createViteProxy(VITE_PROXY)
       // proxy: {
       //   '/api': {
       //     // 本地 8000 前端代码的接口 代理到 8888 的服务端口
