@@ -5,13 +5,12 @@ import {
   createWebHistory
   // RouteRecordRaw
 } from 'vue-router'
-// import { constantRoutes } from './router-constant'
-import { routes } from './modules'
+// import { routes } from './modules'
 const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
-
+import { constantRoutes } from './base/router-constant'
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
-import { createRouterGuards } from './router-guards'
+import { createRouterGuards } from './guard/router-guards'
 // export const RootRoute: RouteRecordRaw = {
 //   path: '/',
 //   name: 'Root',
@@ -43,15 +42,16 @@ const router = createRouter({
       ? createWebHashHistory(VITE_BASE_URL)
       : createWebHistory(VITE_BASE_URL),
   // routes: [...routes, ...constantRoutes],
-  routes: [...routes],
+  routes: [...constantRoutes],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })
 
-export function setupRouter(app: App) {
+export async function setupRouter(app: App) {
   app.use(router)
   // 创建路由守卫
   createRouterGuards(router)
+  await router.isReady()
 }
 
 export default router

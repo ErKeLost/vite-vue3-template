@@ -12,36 +12,36 @@ export const NotService = () => import('@/views/exception/500.vue')
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
 export const constantRoutes: RouteRecordRaw[] = [
-  // {
-  //   name: 'not-permission',
-  //   path: '/not-permission',
-  //   component: NotPremission,
-  //   meta: {
-  //     title: '没有查看当前页面权限',
-  //     singleLayout: 'blank'
-  //   }
-  // },
-  // {
-  //   name: 'not-found',
-  //   path: '/not-found',
-  //   component: NotFound,
-  //   meta: {
-  //     title: '页面未找到',
-  //     singleLayout: 'blank'
-  //   }
-  // },
-  // {
-  //   name: 'not-service',
-  //   path: '/not-service',
-  //   component: NotService,
-  //   meta: {
-  //     title: '服务器错误',
-  //     singleLayout: 'blank'
-  //   }
-  // },
-  // 匹配无效路径的路由
+  {
+    name: 'not-permission',
+    path: '/not-permission',
+    component: NotPremission,
+    meta: {
+      title: '没有查看当前页面权限',
+      singleLayout: 'blank'
+    }
+  },
   {
     name: 'not-found',
+    path: '/not-found',
+    component: NotFound,
+    meta: {
+      title: '页面未找到',
+      singleLayout: 'blank'
+    }
+  },
+  {
+    name: 'not-service',
+    path: '/not-service',
+    component: NotService,
+    meta: {
+      title: '服务器错误',
+      singleLayout: 'blank'
+    }
+  },
+  // 匹配无效路径的路由
+  {
+    name: 'not-found-page',
     path: '/:pathMatch(.*)*',
     component: NotFound,
     meta: {
