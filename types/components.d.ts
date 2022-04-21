@@ -9,13 +9,11 @@ declare module 'vue' {
     500: typeof import('./../src/views/exception/500.vue')['default']
     About: typeof import('./../src/views/about/index.vue')['default']
     BlankLayout: typeof import('./../src/layout/BlankLayout/index.vue')['default']
+    ContentLayout: typeof import('./../src/layout/components/content-layout/index.vue')['default']
     ExceptionBase: typeof import('./../src/components/exception/ExceptionBase.vue')['default']
     IconCustomNotFound: typeof import('~icons/custom/not-found')['default']
     IconCustomNotPermission: typeof import('~icons/custom/not-permission')['default']
     IconCustomNotService: typeof import('~icons/custom/not-service')['default']
-    ParentLayout: typeof import('./../src/layout/parentLayout.vue')['default']
-    Src: typeof import('./../src/layout/components/content-layout/src/index.vue')['default']
-    Undefined: typeof import('./../src/layout/index.vue')['default']
   }
 }
 

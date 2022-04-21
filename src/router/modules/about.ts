@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/layout/index.vue'),
+    component: () => import('@/layout/BlankLayout/index.vue'),
     meta: {
       sort: 10,
       isRoot: true,

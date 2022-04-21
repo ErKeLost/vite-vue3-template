@@ -15,7 +15,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
     path: '/exception',
     name: 'Exception',
     redirect: '/exception/403',
-    component: () => import('@/layout/index.vue'),
+    component: () => import('@/layout/BlankLayout/index.vue'),
     meta: {
       title: '异常页面',
       sort: 3

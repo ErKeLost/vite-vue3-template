@@ -53,9 +53,9 @@ declare global {
     path?: EventTarget[]
   }
 
-  interface ImportMetaEnv extends ViteEnv {
-    __: unknown
-  }
+  // interface ImportMetaEnv extends ViteEnv {
+  //   __: unknown
+  // }
 
   declare interface ViteEnv {
     readonly VITE_PORT: number

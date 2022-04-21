@@ -1,12 +1,13 @@
 import { App } from 'vue'
 import {
   createRouter,
-  createWebHashHistory
-  // createWebHistory,
+  createWebHashHistory,
+  createWebHistory
   // RouteRecordRaw
 } from 'vue-router'
-import { constantRoutes } from './router-constant'
-// import { routes } from './modules'
+// import { constantRoutes } from './router-constant'
+import { routes } from './modules'
+const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
 
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
@@ -37,9 +38,12 @@ import { createRouterGuards } from './router-guards'
 // export const constantRouter: any[] = [constantRoutes]
 
 const router = createRouter({
-  history: createWebHashHistory(''),
-  // history: VITE_HASH_ROUTE === 'true' ? createWebHashHistory(VITE_BASE_URL) : createWebHistory(VITE_BASE_URL),
-  routes: constantRoutes,
+  history:
+    VITE_HASH_ROUTE === 'false'
+      ? createWebHashHistory(VITE_BASE_URL)
+      : createWebHistory(VITE_BASE_URL),
+  // routes: [...routes, ...constantRoutes],
+  routes: [...routes],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })

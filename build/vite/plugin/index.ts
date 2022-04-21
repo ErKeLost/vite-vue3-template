@@ -23,7 +23,7 @@ const vitePath = resolvePath('../../../', import.meta.url)
 
 // import viteImagemin from 'vite-plugin-imagemin'
 // "vite-plugin-imagemin": "^0.6.1",
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+export function createVitePlugins(viteEnv: ImportMetaEnv, isBuild: boolean) {
   console.log(viteEnv, isBuild)
   const vitePlugins: (Plugin | Plugin[])[] = [
     vue(),

@@ -7,10 +7,6 @@ export const NotPremission = () => import('@/views/exception/403.vue')
 export const NotFound = () => import('@/views/exception/404.vue')
 export const NotService = () => import('@/views/exception/500.vue')
 
-export const Layout = () => import('@/layout/index.vue')
-
-export const ParentLayout = () => import('@/layout/parentLayout.vue')
-
 // 404 on a page
 // export const ErrorPageRoute: AppRouteRecordRaw = {
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
