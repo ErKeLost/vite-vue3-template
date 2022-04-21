@@ -6,6 +6,8 @@ import {
   // RouteRecordRaw
 } from 'vue-router'
 import { constantRoutes } from './router-constant'
+// import { routes } from './modules'
+
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 import { createRouterGuards } from './router-guards'

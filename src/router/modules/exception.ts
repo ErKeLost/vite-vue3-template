@@ -25,7 +25,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
         path: '403',
         name: 'exception-403',
         meta: {
-          title: '403'
+          title: '没有查看当前页面权限'
         },
         component: () => import('@/views/exception/403.vue')
       },
@@ -33,7 +33,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
         path: '404',
         name: 'exception-404',
         meta: {
-          title: '404'
+          title: '页面未找到'
         },
         component: () => import('@/views/exception/404.vue')
       },
@@ -41,7 +41,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
         path: '500',
         name: 'exception-500',
         meta: {
-          title: '500'
+          title: '服务器错误'
         },
         component: () => import('@/views/exception/500.vue')
       }

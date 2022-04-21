@@ -19,6 +19,5 @@ export function createRouterGuards(router: Router) {
   router.afterEach(async (to: any, _, failure) => {
     useTitle(to.meta.title)
     console.log(failure)
-    console.log(router.getRoutes())
   })
 }
