@@ -6,39 +6,48 @@ export const RedirectName = 'Redirect'
 export const NotPremission = () => import('@/views/exception/403.vue')
 export const NotFound = () => import('@/views/exception/404.vue')
 export const NotService = () => import('@/views/exception/500.vue')
-
-// 404 on a page
 // export const ErrorPageRoute: AppRouteRecordRaw = {
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
-export const constantRoutes: RouteRecordRaw[] = [
+export const errorRoutes: Array<RouteRecordRaw> = [
   {
-    name: 'not-permission',
-    path: '/not-permission',
-    component: NotPremission,
+    path: '/exception',
+    name: 'Exception',
+    redirect: '/exception/403',
+    component: () => import('@/layout/BlankLayout/index.vue'),
     meta: {
-      title: '没有查看当前页面权限',
-      singleLayout: 'blank'
-    }
-  },
-  {
-    name: 'not-found',
-    path: '/not-found',
-    component: NotFound,
-    meta: {
-      title: '页面未找到',
-      singleLayout: 'blank'
-    }
-  },
-  {
-    name: 'not-service',
-    path: '/not-service',
-    component: NotService,
-    meta: {
-      title: '服务器错误',
-      singleLayout: 'blank'
-    }
-  },
+      title: '异常页面',
+      sort: 3
+    },
+    children: [
+      {
+        path: '403',
+        name: 'not-permission',
+        meta: {
+          title: '没有查看当前页面权限'
+        },
+        component: () => import('@/views/exception/403.vue')
+      },
+      {
+        path: '404',
+        name: 'not-found',
+        meta: {
+          title: '页面未找到'
+        },
+        component: () => import('@/views/exception/404.vue')
+      },
+      {
+        path: '500',
+        name: 'not-service',
+        meta: {
+          title: '服务器错误'
+        },
+        component: () => import('@/views/exception/500.vue')
+      }
+    ]
+  }
+]
+export const notFoundRoutes: RouteRecordRaw[] = [
   // 匹配无效路径的路由
   {
     name: 'not-found-page',
@@ -71,3 +80,4 @@ export const constantRoutes: RouteRecordRaw[] = [
 //     }
 //   ]
 // }
+export default [...errorRoutes, ...notFoundRoutes]
