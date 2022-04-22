@@ -59,6 +59,18 @@ export const notFoundRoutes: RouteRecordRaw[] = [
   }
 ]
 
+export const baseRoutes: RouteRecordRaw[] = [
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('@/views/login/index.vue')
+  },
+  {
+    name: 'root',
+    path: '/',
+    redirect: '/login'
+  }
+]
 // export const RedirectRoute: AppRouteRecordRaw = {
 // export const RedirectRoute: any = {
 //   path: '/redirect',
@@ -80,4 +92,4 @@ export const notFoundRoutes: RouteRecordRaw[] = [
 //     }
 //   ]
 // }
-export default [...errorRoutes, ...notFoundRoutes]
+export default [...errorRoutes, ...notFoundRoutes, ...baseRoutes]
