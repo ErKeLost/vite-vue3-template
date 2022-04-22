@@ -11,51 +11,34 @@ export const NotService = () => import('@/views/exception/500.vue')
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
 export const errorRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/exception',
-    name: 'Exception',
-    redirect: '/exception/403',
-    component: () => import('@/layout/BlankLayout/index.vue'),
+    path: '/not-permission',
+    name: 'not-permission',
     meta: {
-      title: '异常页面',
-      sort: 3
+      title: '没有查看当前页面权限'
     },
-    children: [
-      {
-        path: '403',
-        name: 'not-permission',
-        meta: {
-          title: '没有查看当前页面权限'
-        },
-        component: () => import('@/views/exception/403.vue')
-      },
-      {
-        path: '404',
-        name: 'not-found',
-        meta: {
-          title: '页面未找到'
-        },
-        component: () => import('@/views/exception/404.vue')
-      },
-      {
-        path: '500',
-        name: 'not-service',
-        meta: {
-          title: '服务器错误'
-        },
-        component: () => import('@/views/exception/500.vue')
-      }
-    ]
-  }
-]
-export const notFoundRoutes: RouteRecordRaw[] = [
+    component: () => import('@/views/exception/403.vue')
+  },
+  {
+    path: '/not-found',
+    name: 'not-found',
+    meta: {
+      title: '页面未找到'
+    },
+    component: () => import('@/views/exception/404.vue')
+  },
+  {
+    path: '/not-service',
+    name: 'not-service',
+    meta: {
+      title: '服务器错误'
+    },
+    component: () => import('@/views/exception/500.vue')
+  },
   // 匹配无效路径的路由
   {
     name: 'not-found-page',
     path: '/:pathMatch(.*)*',
-    component: NotFound,
-    meta: {
-      title: '页面未找到'
-    }
+    component: () => import('@/views/exception/404.vue')
   }
 ]
 
@@ -92,4 +75,4 @@ export const baseRoutes: RouteRecordRaw[] = [
 //     }
 //   ]
 // }
-export default [...errorRoutes, ...notFoundRoutes, ...baseRoutes]
+export default [...errorRoutes, ...baseRoutes]

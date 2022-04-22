@@ -16,9 +16,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
   const viteEnv = wrapperEnv(env)
   // const { VITE_PUBLIC_PATH } = viteEnv
   const { VITE_PUBLIC_PATH, VITE_PROXY } = viteEnv
+  console.log(VITE_PUBLIC_PATH)
+
   const isBuild = command === 'build'
   return {
-    base: VITE_PUBLIC_PATH,
+    base: '/',
     resolve: {
       alias: [
         {
@@ -35,10 +37,9 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       preprocessorOptions: {
         // 全局引入了 scss 的文件
         scss: {
-          // charset: false,
           additionalData: `
-      @import "@/styles/variables.scss";
-    `,
+        @import "@/styles/variables.scss";
+      `,
           javascriptEnabled: true
         }
       }
@@ -81,7 +82,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     server: {
       host: true, // host设置为true才可以使用network的形式，以ip访问项目
-      port: 8080, // 端口号
+      port: 8081, // 端口号
       // open: true, // 自动打开浏览器
       cors: true, // 跨域设置允许
       strictPort: true, // 如果端口已占用直接退出

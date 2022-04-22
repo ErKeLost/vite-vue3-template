@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import 'uno.css'
+import './styles/main.css'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
 import { setupCustomComponents } from '@/plugins'

@@ -49,7 +49,7 @@
     "lint-staged": "^12.3.7",
     "prettier": "^2.6.2",
     "rollup-plugin-visualizer": "^5.6.0",
-    "sass": "^1.50.1",
+    "sass": "1.50.1",
     "typescript": "^4.5.4",
     "unocss": "^0.31.0",
     "unplugin-auto-import": "^0.6.9",
@@ -69,10 +69,6 @@
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,json}": [
       "npm run lint:script",
-      "git add --force"
-    ],
-    "**/*.{scss}": [
-      "npm run lint:style",
       "git add --force"
     ]
   },
