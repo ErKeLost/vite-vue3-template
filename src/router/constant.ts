@@ -1,6 +1,7 @@
 import { RouteConstant } from '@/enums/routeEnum'
 export const PAGE_NOT_FOUND_NAME = RouteConstant.PAGE_NOT_FOUND
 export const PAGE_NOT_PERMISSION_NAME = RouteConstant.PAGE_NOT_PERMISSION
+export const PAGE_NOT_FOUND_PAGE_NAME = RouteConstant.PAGE_NOT_FOUND_PAGE
 export const PAGE_NOT_SERVICE_NAME = RouteConstant.PAGE_NOT_SERVICE
 export const PAGE_ROOT_NAME = RouteConstant.PAGE_ROOT
 export const PAGE_LOGIN_NAME = RouteConstant.PAGE_LOGIN
