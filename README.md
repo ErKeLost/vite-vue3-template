@@ -55,8 +55,8 @@
 
 ### UI 框架
 
-- [UnoCSS](https://github.com/antfu/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎 目前可能 回有一些bug 会引发问题
-- [WindCss]() - 原子化Tailwind Css 引擎 我们选这个
+- [UnoCSS](https://github.com/antfu/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎 目前可能 回有一些 bug 会引发问题
+- [WindCss]() - 原子化 Tailwind Css 引擎 我们选这个
 
 ### Icons
 

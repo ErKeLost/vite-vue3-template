@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import viteEslint from 'vite-plugin-eslint'
+// import viteEslint from 'vite-plugin-eslint'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import legacy from '@vitejs/plugin-legacy'
 import Components from 'unplugin-vue-components/vite'
@@ -32,7 +32,7 @@ export function createVitePlugins(viteEnv: ImportMetaEnv, isBuild: boolean) {
     // https://github.com/hannoeru/vite-plugin-pages
     Pages(),
     Inspect(), // 仅适用于开发模式
-    viteEslint(),
+    // viteEslint(), // 又bug
     PkgConfig(),
     // vite need esm browser ? i dont test this plugin  // 2022 . 3 . 12
     legacy({

@@ -1,4 +1,3 @@
-import { RouteRecordRaw } from 'vue-router'
 import {
   PAGE_NOT_FOUND_NAME,
   PAGE_NOT_FOUND_PAGE_NAME,
@@ -21,7 +20,7 @@ export const notFound: AppRouteRecordRaw[] = [
     component: NotFound
   }
 ]
-export const otherErrorRoutes: Array<RouteRecordRaw> = [
+export const otherErrorRoutes: Array<AppRouteRecordRaw> = [
   {
     path: '/not-permission',
     name: PAGE_NOT_PERMISSION_NAME,
@@ -48,7 +47,7 @@ export const otherErrorRoutes: Array<RouteRecordRaw> = [
   }
 ]
 
-export const baseRoutes: RouteRecordRaw[] = [
+export const baseRoutes: AppRouteRecordRaw[] = [
   {
     path: '/login',
     name: PAGE_LOGIN_NAME,
