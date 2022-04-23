@@ -1,3 +1,4 @@
+
 /** 权限路由相关类型 */
 declare namespace AppRouteRecordRaw {
   /** 多级路由分割符号 */

@@ -8,6 +8,7 @@ declare module 'vue' {
     404: typeof import('./../src/views/exception/404.vue')['default']
     500: typeof import('./../src/views/exception/500.vue')['default']
     About: typeof import('./../src/views/about/index.vue')['default']
+    BasicLayout: typeof import('./../src/layout/BasicLayout/index.vue')['default']
     BlankLayout: typeof import('./../src/layout/BlankLayout/index.vue')['default']
     ContentLayout: typeof import('./../src/layout/components/content-layout/index.vue')['default']
     ExceptionBase: typeof import('./../src/components/exception/ExceptionBase.vue')['default']

@@ -7,7 +7,7 @@ import {
 } from 'vue-router'
 // import { routes } from './modules'
 const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
-import constantRoutes from './base/router-constant'
+import constantRoutes from './routes/router-basic'
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 import { createRouterGuards } from './guard/router-guards'

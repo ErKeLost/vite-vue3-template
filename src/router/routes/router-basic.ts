@@ -1,56 +1,57 @@
 import { RouteRecordRaw } from 'vue-router'
-
+import {
+  PAGE_NOT_FOUND_NAME,
+  PAGE_NOT_PERMISSION_NAME,
+  PAGE_NOT_SERVICE_NAME,
+  PAGE_LOGIN_NAME,
+  PAGE_ROOT_NAME,
+  NotPermission,
+  NotFound,
+  NotService,
+  Login
+} from '../constant'
 // import type { AppRouteRecordRaw } from '@/router/types'
 export const RedirectName = 'Redirect'
 
-export const NotPremission = () => import('@/views/exception/403.vue')
-export const NotFound = () => import('@/views/exception/404.vue')
-export const NotService = () => import('@/views/exception/500.vue')
 // export const ErrorPageRoute: AppRouteRecordRaw = {
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
 // export const constantRoutes: AppRouteRecordRaw.Route[] = [
-export const errorRoutes: Array<RouteRecordRaw> = [
+export const notFound: RouteRecordRaw[] = [
+  // 匹配无效路径的路由
+  {
+    path: '/:pathMatch(.*)*',
+    name: PAGE_NOT_FOUND_NAME,
+    component: NotFound
+  }
+]
+export const otherErrorRoutes: Array<RouteRecordRaw> = [
   {
     path: '/not-permission',
-    name: 'not-permission',
+    name: PAGE_NOT_PERMISSION_NAME,
     meta: {
       title: '没有查看当前页面权限'
     },
-    component: () => import('@/views/exception/403.vue')
-  },
-  {
-    path: '/not-found',
-    name: 'not-found',
-    meta: {
-      title: '页面未找到'
-    },
-    component: () => import('@/views/exception/404.vue')
+    component: NotPermission
   },
   {
     path: '/not-service',
-    name: 'not-service',
+    name: PAGE_NOT_SERVICE_NAME,
     meta: {
       title: '服务器错误'
     },
-    component: () => import('@/views/exception/500.vue')
-  },
-  // 匹配无效路径的路由
-  {
-    name: 'not-found-page',
-    path: '/:pathMatch(.*)*',
-    component: () => import('@/views/exception/404.vue')
+    component: NotService
   }
 ]
 
 export const baseRoutes: RouteRecordRaw[] = [
   {
-    name: 'login',
     path: '/login',
-    component: () => import('@/views/login/index.vue')
+    name: PAGE_LOGIN_NAME,
+    component: Login
   },
   {
-    name: 'root',
     path: '/',
+    name: PAGE_ROOT_NAME,
     redirect: '/login'
   }
 ]
@@ -75,4 +76,4 @@ export const baseRoutes: RouteRecordRaw[] = [
 //     }
 //   ]
 // }
-export default [...errorRoutes, ...baseRoutes]
+export default [...otherErrorRoutes, ...baseRoutes, ...notFound]
