@@ -11,13 +11,9 @@ import {
   NotService,
   Login
 } from '../constant'
-// import type { AppRouteRecordRaw } from '@/router/types'
 export const RedirectName = 'Redirect'
 
-// export const ErrorPageRoute: AppRouteRecordRaw = {
-// export const constantRoutes: AppRouteRecordRaw.Route[] = [
-// export const constantRoutes: AppRouteRecordRaw.Route[] = [
-export const notFound: RouteRecordRaw[] = [
+export const notFound: AppRouteRecordRaw[] = [
   // 匹配无效路径的路由
   {
     path: '/:pathMatch(.*)*',
