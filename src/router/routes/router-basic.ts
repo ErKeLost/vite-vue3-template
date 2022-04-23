@@ -40,7 +40,7 @@ export const otherErrorRoutes: Array<RouteRecordRaw> = [
     meta: {
       title: '页面未找到'
     },
-    component: NotPermission
+    component: NotFound
   },
   {
     path: '/not-service',
