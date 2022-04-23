@@ -2,6 +2,7 @@
 import { useTitle } from '@vueuse/core'
 // import { isNavigationFailure, Router } from 'vue-router'
 import { Router } from 'vue-router'
+import { RouteConstant } from '@/enums/routeEnum'
 // import { routes } from './modules'
 // import constantRoutes from '../base/router-constant'
 const whitePathList: string[] = [] // no redirect whitelist
@@ -13,10 +14,10 @@ export function createRouterGuards(router: Router) {
     //   router.addRoute(route)
     // })
     // 权限路由已经加载，仍然未找到，重定向到not-found
-    if (to.name === routeName('not-found-page')) {
+    if (to.name === routeName(RouteConstant)) {
       console.log(to.name)
 
-      next({ name: routeName('not-found'), replace: true })
+      next({ name: routeName(RouteConstant), replace: true })
       return false
     }
     console.log(router.getRoutes())
