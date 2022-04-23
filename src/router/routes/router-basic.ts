@@ -1,3 +1,4 @@
+import { AppRouteRecordRaw } from '../../../types/route'
 import {
   PAGE_NOT_FOUND_NAME,
   PAGE_NOT_FOUND_PAGE_NAME,

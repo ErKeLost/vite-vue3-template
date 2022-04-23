@@ -2,7 +2,8 @@ import { App } from 'vue'
 import {
   createRouter,
   createWebHashHistory,
-  createWebHistory
+  createWebHistory,
+  RouteRecordRaw
   // RouteRecordRaw
 } from 'vue-router'
 // import { routes } from './modules'
@@ -42,7 +43,7 @@ const router = createRouter({
       ? createWebHashHistory(VITE_BASE_URL)
       : createWebHistory(VITE_BASE_URL),
   // routes: [...routes, ...constantRoutes],
-  routes: [...constantRoutes],
+  routes: constantRoutes as unknown as RouteRecordRaw[],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })
