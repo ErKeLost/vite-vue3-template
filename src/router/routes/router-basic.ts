@@ -9,7 +9,8 @@ import {
   NotPermission,
   NotFound,
   NotService,
-  Login
+  Login,
+  BlankLayout
 } from '../constant'
 export const RedirectName = 'Redirect'
 
@@ -60,25 +61,25 @@ export const baseRoutes: AppRouteRecordRaw[] = [
     redirect: '/login'
   }
 ]
-// export const RedirectRoute: AppRouteRecordRaw = {
-// export const RedirectRoute: any = {
-//   path: '/redirect',
-//   name: RedirectName,
-//   component: Layout,
-//   meta: {
-//     title: RedirectName,
-//     hideBreadcrumb: true
-//   },
-//   children: [
-//     {
-//       path: '/redirect/:path(.*)',
-//       name: RedirectName,
-//       component: () => import('@/views/redirect/index.vue'),
-//       meta: {
-//         title: RedirectName,
-//         hideBreadcrumb: true
-//       }
-//     }
-//   ]
-// }
-export default [...otherErrorRoutes, ...baseRoutes, ...notFound]
+export const RedirectRoute: AppRouteRecordRaw[] = [
+  {
+    path: '/redirect',
+    name: 'redirect',
+    component: BlankLayout,
+    meta: {},
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        name: RedirectName,
+        component: () => import('@/views/redirect/index.vue'),
+        meta: {}
+      }
+    ]
+  }
+]
+export default [
+  ...otherErrorRoutes,
+  ...RedirectRoute,
+  ...baseRoutes,
+  ...notFound
+]

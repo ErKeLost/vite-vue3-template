@@ -8,28 +8,10 @@ import {
 } from 'vue-router'
 // import { routes } from './modules'
 const { VITE_HASH_ROUTE = 'false', VITE_BASE_URL } = import.meta.env
-import constantRoutes from './routes/router-basic'
+import WHITE_NAME_LIST from './routes/router-basic'
 // import { RedirectRoute } from '@/router/base'
 // // import { PageEnum } from '@/enums/pageEnum'
 import { createRouterGuards } from './guard/router-guards'
-// export const RootRoute: RouteRecordRaw = {
-//   path: '/',
-//   name: 'Root',
-//   // redirect: PageEnum.BASE_HOME,
-//   redirect: '',
-//   meta: {
-//     title: 'Root'
-//   }
-// }
-
-// export const LoginRoute: RouteRecordRaw = {
-//   path: '/login',
-//   name: 'Login',
-//   component: () => import('@/views/login/index.vue'),
-//   meta: {
-//     title: '登录'
-//   }
-// }
 
 // //需要验证权限
 // export const asyncRoutes = [...routeModuleList]
@@ -42,8 +24,7 @@ const router = createRouter({
     VITE_HASH_ROUTE === 'false'
       ? createWebHashHistory(VITE_BASE_URL)
       : createWebHistory(VITE_BASE_URL),
-  // routes: [...routes, ...constantRoutes],
-  routes: constantRoutes as unknown as RouteRecordRaw[],
+  routes: WHITE_NAME_LIST as unknown as RouteRecordRaw[],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 })
@@ -56,4 +37,4 @@ export async function setupRouter(app: App) {
 }
 
 export default router
-// export * from './modules'
+export { modules } from './modules'

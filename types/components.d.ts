@@ -16,6 +16,7 @@ declare module 'vue' {
     Login: typeof import('./../src/views/login/index.vue')['default']
     LoginAccount: typeof import('./../src/views/login/cpns/login-account.vue')['default']
     LoginPreview: typeof import('./../src/views/login/cpns/login-preview.vue')['default']
+    Redirect: typeof import('./../src/views/redirect/index.vue')['default']
   }
 }
 
