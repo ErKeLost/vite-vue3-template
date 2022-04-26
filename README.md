@@ -23,6 +23,22 @@
 
 ## 特性
 
+- 🎪 [**Interactive docs & demos**](https://vueuse.org)
+
+- 🕶 **Seamless migration**: Works for **both** Vue 3 and 2
+
+- ⚡ **Fully tree shakeable**: Only take what you want, [bundle size](https://vueuse.org/export-size)
+
+- 🦾 **Type Strong**: Written in [TypeScript](https://www.typescriptlang.org/), with [TS Docs](https://github.com/microsoft/tsdoc)
+
+- 🔋 **SSR Friendly**
+
+- 🌎 **No bundler required**: Usable via CDN
+
+- 🔩 **Flexible**: Configurable event filters and targets
+
+- 🔌 **Optional [Add-ons](https://vueuse.org/add-ons)**: Router, Firebase, RxJS, etc.
+
 - ⚡️ [Vue 3](https://github.com/vuejs/vue-next), [Vite 2](https://github.com/vitejs/vite), [pnpm](https://pnpm.js.org/), [ESBuild](https://github.com/evanw/esbuild) - 就是快！
 
 - 🗂 [基于文件的路由]()
