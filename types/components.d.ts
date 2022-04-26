@@ -12,7 +12,6 @@ declare module 'vue' {
     BlankLayout: typeof import('./../src/layout/BlankLayout/index.vue')['default']
     ContentLayout: typeof import('./../src/layout/components/content-layout/index.vue')['default']
     ExceptionBase: typeof import('./../src/components/exception/ExceptionBase.vue')['default']
-    IconCustomSign: typeof import('~icons/custom/sign')['default']
     Login: typeof import('./../src/views/login/index.vue')['default']
     LoginAccount: typeof import('./../src/views/login/cpns/login-account.vue')['default']
     LoginPreview: typeof import('./../src/views/login/cpns/login-preview.vue')['default']
