@@ -11,6 +11,7 @@ declare module 'vue' {
     BasicLayout: typeof import('./../src/layout/BasicLayout/index.vue')['default']
     BlankLayout: typeof import('./../src/layout/BlankLayout/index.vue')['default']
     ContentLayout: typeof import('./../src/layout/components/content-layout/index.vue')['default']
+    Coordinate: typeof import('./../src/views/login/cpns/coordinate.vue')['default']
     ExceptionBase: typeof import('./../src/components/exception/ExceptionBase.vue')['default']
     Login: typeof import('./../src/views/login/index.vue')['default']
     LoginAccount: typeof import('./../src/views/login/cpns/login-account.vue')['default']
